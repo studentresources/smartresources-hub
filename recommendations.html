@@ -5,6 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recommended for You — SmartResources Hub</title>
 <link rel="stylesheet" href="style.css">
+<style>
+  .recommendations-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 32px;
+    align-items: start;
+    width: 100%;
+  }
+
+  @media (max-width: 1100px) {
+    .recommendations-layout {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+  }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -22,7 +38,10 @@
       <a href="contact.html">Contact</a>
     </nav>
     <div class="nav-actions">
-      <div class="nav-search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.5-3.5"/></svg><input type="text" placeholder="Search schemes, tools, discounts..."></div>
+      <div class="nav-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.5-3.5"/></svg>
+        <input type="text" id="resourceSearchInput" placeholder="Search schemes, tools, discounts...">
+      </div>
       <a href="my-profile.html" class="avatar" aria-label="My profile">S</a>
     </div>
   </div>
@@ -39,7 +58,7 @@
       <a href="recommendations.html" class="active"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="3.5"/></svg>Recommendations</a>
       <a href="saved-items.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg>Saved Items</a>
       <a href="my-profile.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>My Profile</a>
-      <a href="profile-setup.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>Profile Setup</a>
+      <a href="profile-setup.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1-1.56 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.56-1 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.56 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87V9a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1Z"/></svg>Profile Setup</a>
       <hr>
       <a href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>Logout</a>
     </nav>
@@ -47,7 +66,7 @@
   </aside>
 
   <main id="main" class="main-col">
-    <div style="display:grid; grid-template-columns: 1fr 320px; gap:32px; align-items:start;">
+    <div class="recommendations-layout">
       <div>
         <p class="breadcrumb"><a href="index.html">Home</a><span>&gt;</span>Recommendations</p>
         <div class="flex-between" style="margin-bottom:6px; align-items:flex-start;">
@@ -55,9 +74,9 @@
           <div>
             <label for="sortBy" class="muted" style="font-size:0.85rem; margin-right:8px;">Sort by</label>
             <select id="sortBy" style="padding:9px 14px; border-radius:var(--radius-sm); border:1px solid var(--border-card); background:var(--bg-card);">
-              <option>Most Relevant</option>
-              <option>Newest</option>
-              <option>Closing Soon</option>
+              <option value="relevant">Most Relevant</option>
+              <option value="az">Title (A &mdash; Z)</option>
+              <option value="za">Title (Z &mdash; A)</option>
             </select>
           </div>
         </div>
@@ -73,7 +92,7 @@
           <button class="pill" data-category="learning-resource">Learning Resources</button>
         </div>
 
-        <div class="grid-3">
+        <div class="grid-3" id="cardsGrid">
           <article class="resource-card rec-card" data-category="government-scheme">
             <div class="resource-card-top"><span class="badge badge-gov">Government Scheme</span><span class="badge badge-scope">Central</span></div>
             <div class="resource-icon" style="background:var(--badge-gov-bg); color:var(--badge-gov-txt);">&#127963;</div>
@@ -106,7 +125,7 @@
             </a>
             <div class="card-actions">
               <button class="link-action" data-save-btn><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg><span>Save</span></button>
-              <a class="link-action" href="#">View Details</a>
+              <a class="link-action" href="resource-detail.html">View Details</a>
             </div>
           </article>
 
@@ -124,7 +143,7 @@
             </a>
             <div class="card-actions">
               <button class="link-action" data-save-btn><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg><span>Save</span></button>
-              <a class="link-action" href="#">View Details</a>
+              <a class="link-action" href="resource-detail.html">View Details</a>
             </div>
           </article>
 
@@ -142,7 +161,7 @@
             </a>
             <div class="card-actions">
               <button class="link-action" data-save-btn><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg><span>Save</span></button>
-              <a class="link-action" href="#">View Details</a>
+              <a class="link-action" href="resource-detail.html">View Details</a>
             </div>
           </article>
 
@@ -160,7 +179,7 @@
             </a>
             <div class="card-actions">
               <button class="link-action" data-save-btn><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg><span>Save</span></button>
-              <a class="link-action" href="#">View Details</a>
+              <a class="link-action" href="resource-detail.html">View Details</a>
             </div>
           </article>
 
@@ -178,7 +197,7 @@
             </a>
             <div class="card-actions">
               <button class="link-action" data-save-btn><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg><span>Save</span></button>
-              <a class="link-action" href="#">View Details</a>
+              <a class="link-action" href="resource-detail.html">View Details</a>
             </div>
           </article>
         </div>
@@ -190,10 +209,10 @@
         </section>
       </div>
 
-      <aside style="display:flex; flex-direction:column; gap:18px;">
+      <aside style="display:flex; flex-direction:column; gap:18px; min-width:0;">
         <div class="card" style="padding:0; overflow:hidden; text-align:center; background:var(--primary-subtle);">
           <p style="font-family:var(--font-serif); font-style:italic; font-size:1.3rem; padding-top:18px; margin-bottom:0;">A Brighter<br>You</p>
-          <img src="student-illustration.svg" alt="Illustration of a student with a laptop" style="max-width:260px; margin:0 auto;">
+          <img src="images/hero-illustration.png" alt="Illustration of student opportunities" style="max-width:240px; width:100%; margin:0 auto;" onerror="this.style.display='none'">
           <p style="font-family:var(--font-serif); font-style:italic; padding-bottom:16px; margin-top:8px;">More opportunities for a brighter tomorrow &hearts;</p>
         </div>
 
@@ -222,5 +241,71 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('resourceSearchInput');
+    const pills = document.querySelectorAll('[data-category]');
+    const cards = document.querySelectorAll('#cardsGrid .resource-card');
+    const sortSelect = document.getElementById('sortBy');
+    const cardsGrid = document.getElementById('cardsGrid');
+
+    let currentCategory = 'all';
+
+    function applyFilterAndSearch() {
+      const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
+
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category') || '';
+        const title = (card.querySelector('h3') ? card.querySelector('h3').textContent : '').toLowerCase();
+        const desc = (card.querySelector('.desc') ? card.querySelector('.desc').textContent : '').toLowerCase();
+
+        const matchesCategory = (currentCategory === 'all' || category === currentCategory);
+        const matchesQuery = !query || title.includes(query) || desc.includes(query);
+
+        if (matchesCategory && matchesQuery) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // 1. Live search as user types
+    if (searchInput) {
+      searchInput.addEventListener('input', applyFilterAndSearch);
+    }
+
+    // 2. Category pill filters
+    pills.forEach(pill => {
+      pill.addEventListener('click', function () {
+        pills.forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+        currentCategory = this.getAttribute('data-category');
+        applyFilterAndSearch();
+      });
+    });
+
+    // 3. Sort by title (A-Z, Z-A)
+    if (sortSelect && cardsGrid) {
+      sortSelect.addEventListener('change', function () {
+        const cardsArray = Array.from(cards);
+        if (this.value === 'az') {
+          cardsArray.sort((a, b) => {
+            const tA = a.querySelector('h3').textContent.trim().toLowerCase();
+            const tB = b.querySelector('h3').textContent.trim().toLowerCase();
+            return tA.localeCompare(tB);
+          });
+        } else if (this.value === 'za') {
+          cardsArray.sort((a, b) => {
+            const tA = a.querySelector('h3').textContent.trim().toLowerCase();
+            const tB = b.querySelector('h3').textContent.trim().toLowerCase();
+            return tB.localeCompare(tA);
+          });
+        }
+        cardsArray.forEach(card => cardsGrid.appendChild(card));
+      });
+    }
+  });
+</script>
 </body>
 </html>

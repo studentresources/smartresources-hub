@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Complete Your Profile — SmartResources Hub</title>
 <link rel="stylesheet" href="style.css">
+<style>
+  .setup-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+    width: 100%;
+  }
+  @media (max-width: 900px) {
+    .setup-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -41,7 +56,6 @@
       <a href="saved-items.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg>Saved Items</a>
       <a href="my-profile.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>My Profile</a>
       <a href="profile-setup.html" class="active"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1-1.56 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.56-1 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.56 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87V9a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1Z"/></svg>Profile Setup</a>
-      <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87"/></svg>Settings</a>
       <hr>
       <a href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>Logout</a>
     </nav>
@@ -50,7 +64,7 @@
 
   <!-- ===== Main ===== -->
   <main id="main" class="main-col">
-    <div style="display:grid; grid-template-columns: 1.6fr 1fr; gap:32px; align-items:start;">
+    <div class="setup-grid">
       <section>
         <p style="letter-spacing:0.1em; font-weight:600; color:var(--primary); font-size:0.78rem;">STEP <span data-step-counter>1</span> OF 4</p>
         <h1 style="font-size:2.1rem;">Complete Your Profile</h1>
@@ -63,7 +77,7 @@
           <div class="step"><div class="step-circle">4</div><div class="step-label">Complete</div></div>
         </div>
 
-        <form data-step-form novalidate>
+        <form data-step-form action="recommendations.html" method="GET" novalidate>
           <!-- Step 1: Academic -->
           <div data-step-panel>
             <h3 style="font-size:1.2rem;">Academic Information</h3>
@@ -74,7 +88,7 @@
               <select id="eduLevel" required>
                 <option value="">Select your current education level</option>
                 <option>Class 11–12</option>
-                <option>Undergraduate (UG)</option>
+                <option selected>Undergraduate (UG)</option>
                 <option>Postgraduate (PG)</option>
                 <option>PhD / Research</option>
                 <option>Diploma</option>
@@ -84,7 +98,7 @@
               <label for="fieldOfStudy">Field of Study <span class="req">*</span></label>
               <select id="fieldOfStudy" required>
                 <option value="">Select your field of study</option>
-                <option>Computer Science &amp; Engineering</option>
+                <option selected>Computer Science &amp; Engineering</option>
                 <option>Commerce &amp; Management</option>
                 <option>Arts &amp; Humanities</option>
                 <option>Science</option>
@@ -96,7 +110,7 @@
               <label for="yearOfStudy">Year of Study <span class="req">*</span></label>
               <select id="yearOfStudy" required>
                 <option value="">Select your current year</option>
-                <option>1st Year</option>
+                <option selected>1st Year</option>
                 <option>2nd Year</option>
                 <option>3rd Year</option>
                 <option>Final Year</option>
@@ -106,7 +120,7 @@
               <label for="category">Category (Optional)</label>
               <select id="category">
                 <option value="">Select your category</option>
-                <option>General</option>
+                <option selected>General</option>
                 <option>OBC</option>
                 <option>SC</option>
                 <option>ST</option>
@@ -116,7 +130,7 @@
             <div class="field">
               <label for="state">State <span class="req">*</span></label>
               <select id="state" required>
-                <option>Maharashtra</option>
+                <option selected>Maharashtra</option>
                 <option>Karnataka</option>
                 <option>Delhi</option>
                 <option>Gujarat</option>
@@ -137,7 +151,7 @@
             <p class="muted">A little more about you.</p>
             <div class="field">
               <label for="fullName">Full Name <span class="req">*</span></label>
-              <input type="text" id="fullName" required placeholder="Your full name">
+              <input type="text" id="fullName" required placeholder="Your full name" value="Sayali">
             </div>
             <div class="field">
               <label for="dob">Date of Birth <span class="req">*</span></label>
@@ -161,9 +175,9 @@
             <h3 style="font-size:1.2rem;">Your Interests</h3>
             <p class="muted">Choose a few areas so we can tailor recommendations.</p>
             <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:24px;">
-              <label class="pill" style="cursor:pointer;"><input type="checkbox" style="margin-right:6px;">Computer Science</label>
-              <label class="pill" style="cursor:pointer;"><input type="checkbox" style="margin-right:6px;">Scholarships</label>
-              <label class="pill" style="cursor:pointer;"><input type="checkbox" style="margin-right:6px;">AI Tools</label>
+              <label class="pill" style="cursor:pointer;"><input type="checkbox" checked style="margin-right:6px;">Computer Science</label>
+              <label class="pill" style="cursor:pointer;"><input type="checkbox" checked style="margin-right:6px;">Scholarships</label>
+              <label class="pill" style="cursor:pointer;"><input type="checkbox" checked style="margin-right:6px;">AI Tools</label>
               <label class="pill" style="cursor:pointer;"><input type="checkbox" style="margin-right:6px;">Skill Development</label>
               <label class="pill" style="cursor:pointer;"><input type="checkbox" style="margin-right:6px;">Internships</label>
               <label class="pill" style="cursor:pointer;"><input type="checkbox" style="margin-right:6px;">Design Tools</label>
@@ -182,9 +196,9 @@
             <h3 style="font-size:1.2rem;">You're All Set!</h3>
             <p class="muted">Review your details, then save your profile to see personalized recommendations.</p>
             <div class="card" style="padding:20px; margin-bottom:24px;">
-              <p style="margin-bottom:6px;"><strong>Education:</strong> As selected in Step 1</p>
+              <p style="margin-bottom:6px;"><strong>Education:</strong> Undergraduate (UG) &mdash; Computer Science &amp; Engineering</p>
               <p style="margin-bottom:6px;"><strong>State:</strong> Maharashtra</p>
-              <p style="margin-bottom:0;"><strong>Interests:</strong> As selected in Step 3</p>
+              <p style="margin-bottom:0;"><strong>Interests:</strong> Computer Science, Scholarships, AI Tools</p>
             </div>
             <div class="flex-between">
               <button type="button" class="btn btn-ghost" data-prev>
@@ -197,10 +211,10 @@
         </form>
       </section>
 
-      <aside>
+      <aside style="min-width:0;">
         <div class="card" style="padding:0; overflow:hidden; margin-bottom:20px; background:var(--primary-subtle); text-align:center;">
           <p style="font-family:var(--font-serif); font-style:italic; font-size:1.3rem; padding-top:20px;">Learn<br>Apply<br>Grow</p>
-          <img src="student-illustration.svg" alt="Illustration of a student studying with a laptop, surrounded by books labelled Better Skills, More Opportunities, Brighter Tomorrow" style="max-width:320px; margin:0 auto;">
+          <img src="images/hero-illustration.png" alt="Illustration of student opportunities" style="max-width:280px; width:100%; margin:0 auto;" onerror="this.style.display='none'">
         </div>
         <div class="card" style="padding:22px;">
           <div style="display:flex; gap:12px; align-items:flex-start;">
@@ -223,5 +237,73 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('[data-step-form]');
+    if (!form) return;
+
+    const panels = form.querySelectorAll('[data-step-panel]');
+    const steps = document.querySelectorAll('.steps .step');
+    const counter = document.querySelector('[data-step-counter]');
+    let currentStep = 0;
+
+    function showStep(stepIndex) {
+      panels.forEach((panel, i) => {
+        if (i === stepIndex) {
+          panel.removeAttribute('hidden');
+          panel.style.display = 'block';
+        } else {
+          panel.setAttribute('hidden', '');
+          panel.style.display = 'none';
+        }
+      });
+
+      steps.forEach((step, i) => {
+        step.classList.remove('current', 'done');
+        if (i < stepIndex) {
+          step.classList.add('done');
+        } else if (i === stepIndex) {
+          step.classList.add('current');
+        }
+      });
+
+      if (counter) {
+        counter.textContent = stepIndex + 1;
+      }
+      currentStep = stepIndex;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    form.querySelectorAll('[data-next]').forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const currentPanel = panels[currentStep];
+        const inputs = currentPanel.querySelectorAll('input[required], select[required]');
+        let valid = true;
+        inputs.forEach(input => {
+          if (!input.checkValidity()) {
+            input.reportValidity();
+            valid = false;
+          }
+        });
+
+        if (valid && currentStep < panels.length - 1) {
+          showStep(currentStep + 1);
+        }
+      });
+    });
+
+    form.querySelectorAll('[data-prev]').forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (currentStep > 0) {
+          showStep(currentStep - 1);
+        }
+      });
+    });
+
+    showStep(0);
+  });
+</script>
 </body>
 </html>
