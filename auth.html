@@ -1,160 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login &amp; Sign Up — SmartResources Hub</title>
-<link rel="stylesheet" href="style.css">
-<style>
-  .auth-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 48px;
-    align-items: start;
-    width: 100%;
-    max-width: 100%;
-  }
-  @media (max-width: 900px) {
-    .auth-grid {
-      grid-template-columns: 1fr;
-      gap: 36px;
-    }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login &amp; Sign Up — SmartResources Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Main authentication layout */
+        .auth-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 48px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .auth-form-column {
+            min-width: 0;
+            width: 100%;
+        }
+
+        .auth-form-column .card {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Input icon positioning */
+        .input-icon-wrap {
+            position: relative;
+            width: 100%;
+        }
+
+        .input-icon-wrap input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Email and login password leading icons */
+        #loginEmail,
+        #loginPassword {
+            padding-left: 44px !important;
+        }
+
+        /* Password visibility icon spacing */
+        #loginPassword,
+        #signupPassword {
+            padding-right: 46px !important;
+        }
+
+        .input-icon-wrap svg.leading {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .input-icon-wrap .trailing-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 6px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .input-icon-wrap .trailing-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Illustration column */
+        .auth-illustration {
+            text-align: center;
+            min-width: 0;
+        }
+
+        .auth-illustration img {
+            max-width: 380px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Tablet and mobile */
+        @media (max-width: 900px) {
+            .auth-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .auth-illustration {
+                max-width: 550px;
+                margin: 0 auto;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .auth-form-column .card {
+                padding: 24px !important;
+            }
+
+            .auth-form-column h2 {
+                font-size: 1.7rem !important;
+            }
+
+            .input-icon-wrap input {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<a class="skip-link" href="#main">Skip to main content</a>
 
-<header class="navbar">
-  <div class="navbar-inner">
-    <a class="brand" href="index.html">
-      <span class="brand-mark" aria-hidden="true">S</span>
-      <span class="brand-text">
-        <h1>SmartResources Hub</h1>
-        <div class="brand-tagline">LEARN &middot; APPLY &middot; GROW</div>
-      </span>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="recommendations.html">Resources</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="nav-actions">
-      <button class="btn btn-outline" type="button" onclick="showSignup()">Sign Up</button>
-      <button class="btn btn-primary" type="button" onclick="showLogin()">Login</button>
-    </div>
-  </div>
-</header>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-<main id="main" class="container" style="padding:48px 24px 80px;">
-  <div class="auth-grid">
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-inner">
 
-    <!-- ===== Login Panel ===== -->
-    <section class="card" id="loginPanel" style="padding:40px;">
-      <p style="letter-spacing:0.1em; font-weight:600; color:var(--primary); font-size:0.78rem;">WELCOME BACK</p>
-      <h2 style="font-size:2.2rem; margin-bottom:12px;">Login to Your Account</h2>
-      <p class="muted" style="margin-bottom:28px;">Continue your journey to discover opportunities, manage your profile and access personalized recommendations.</p>
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">S</span>
 
-      <form action="dashboard.html" method="GET">
-        <div class="field">
-          <label for="loginEmail">Email address</label>
-          <div class="input-icon-wrap">
-            <svg class="leading" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-            <input type="email" id="loginEmail" required placeholder="you@example.com">
-          </div>
+                <span class="brand-text">
+                    <h1>SmartResources Hub</h1>
+                    <div class="brand-tagline">
+                        LEARN &middot; APPLY &middot; GROW
+                    </div>
+                </span>
+            </a>
+
+            <nav class="nav-links" aria-label="Primary">
+                <a href="index.html">Home</a>
+                <a href="recommendations.html">Resources</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="btn btn-outline" type="button"
+                    onclick="showSignup()">Sign Up</button>
+
+                <button class="btn btn-primary" type="button"
+                    onclick="showLogin()">Login</button>
+            </div>
+
         </div>
-        <div class="field">
-          <label for="loginPassword">Password</label>
-          <div class="input-icon-wrap">
-            <svg class="leading" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
-            <input type="password" id="loginPassword" required placeholder="Enter your password">
-            <button type="button" class="trailing-btn" data-toggle-password="#loginPassword" aria-label="Show password">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-            </button>
-          </div>
+    </header>
+
+
+    <!-- Main Authentication Section -->
+    <main id="main" class="container" style="padding:48px 24px 80px;">
+
+        <div class="auth-grid">
+
+            <!-- Login and Signup Column -->
+            <div class="auth-form-column">
+
+                <!-- Login Panel -->
+                <section class="card" id="loginPanel" style="padding:40px;">
+
+                    <p style="letter-spacing:0.1em; font-weight:600; color:var(--primary); font-size:0.78rem;">
+                        WELCOME BACK
+                    </p>
+
+                    <h2 style="font-size:2.2rem; margin-bottom:12px;">
+                        Login to Your Account
+                    </h2>
+
+                    <p class="muted" style="margin-bottom:28px;">
+                        Continue your journey to discover opportunities,
+                        manage your profile and access personalized recommendations.
+                    </p>
+
+                    <form id="loginForm">
+
+                        <!-- Email -->
+                        <div class="field">
+
+                            <label for="loginEmail">Email address</label>
+
+                            <div class="input-icon-wrap">
+
+                                <svg class="leading" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="5" width="18" height="14" rx="2"/>
+                                    <path d="m3 7 9 6 9-6"/>
+                                </svg>
+
+                                <input type="email"
+                                    id="loginEmail"
+                                    name="email"
+                                    autocomplete="email"
+                                    required
+                                    placeholder="you@example.com">
+
+                            </div>
+                        </div>
+
+
+                        <!-- Password -->
+                        <div class="field">
+
+                            <label for="loginPassword">Password</label>
+
+                            <div class="input-icon-wrap">
+
+                                <svg class="leading" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="5" y="11" width="14" height="9" rx="2"/>
+                                    <path d="M8 11V8a4 4 0 0 1 8 0v3"/>
+                                </svg>
+
+                                <input type="password"
+                                    id="loginPassword"
+                                    name="password"
+                                    autocomplete="current-password"
+                                    required
+                                    placeholder="Enter your password">
+
+                                <button type="button"
+                                    class="trailing-btn"
+                                    data-toggle-password="#loginPassword"
+                                    aria-label="Show password">
+
+                                    <svg viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                    </svg>
+
+                                </button>
+
+                            </div>
+                        </div>
+
+
+                        <div class="flex-between" style="margin-bottom:24px;">
+
+                            <label class="checkbox-row">
+                                <input type="checkbox">
+                                Remember me
+                            </label>
+
+                            <a href="#"
+                                style="color:var(--primary); font-weight:600; font-size:0.9rem;">
+                                Forgot password?
+                            </a>
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Login
+                        </button>
+
+                    </form>
+
+                    <p style="text-align:center; margin-top:24px; font-size:0.92rem;">
+                        Don't have an account?
+
+                        <a href="#" onclick="showSignup(); return false;"
+                            style="color:var(--primary); font-weight:700;">
+                            Sign up
+                        </a>
+                    </p>
+
+                </section>
+
+
+                <!-- Signup Panel -->
+                <section class="card" id="signupPanel"
+                    style="padding:40px; display:none;">
+
+                    <p style="letter-spacing:0.1em; font-weight:600; color:var(--primary); font-size:0.78rem;">
+                        JOIN THE COMMUNITY
+                    </p>
+
+                    <h2 style="font-size:2.2rem; margin-bottom:12px;">
+                        Create Your Account
+                    </h2>
+
+                    <p class="muted" style="margin-bottom:28px;">
+                        Sign up to unlock personalized scholarships,
+                        discounts and AI tools curated for you.
+                    </p>
+
+                    <form id="signupForm">
+
+                        <!-- Name -->
+                        <div class="field">
+
+                            <label for="signupName">
+                                Full name <span class="req">*</span>
+                            </label>
+
+                            <input type="text"
+                                id="signupName"
+                                name="name"
+                                autocomplete="name"
+                                required
+                                placeholder="Your full name">
+
+                        </div>
+
+
+                        <!-- Email -->
+                        <div class="field">
+
+                            <label for="signupEmail">
+                                Email address <span class="req">*</span>
+                            </label>
+
+                            <input type="email"
+                                id="signupEmail"
+                                name="email"
+                                autocomplete="email"
+                                required
+                                placeholder="you@example.com">
+
+                        </div>
+
+
+                        <!-- Password -->
+                        <div class="field">
+
+                            <label for="signupPassword">
+                                Password <span class="req">*</span>
+                            </label>
+
+                            <div class="input-icon-wrap">
+
+                                <input type="password"
+                                    id="signupPassword"
+                                    name="password"
+                                    autocomplete="new-password"
+                                    required
+                                    placeholder="Create a password"
+                                    minlength="8">
+
+                                <button type="button"
+                                    class="trailing-btn"
+                                    data-toggle-password="#signupPassword"
+                                    aria-label="Show password">
+
+                                    <svg viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                    </svg>
+
+                                </button>
+
+                            </div>
+                        </div>
+
+
+                        <!-- Terms -->
+                        <label class="checkbox-row" style="margin-bottom:24px;">
+
+                            <input type="checkbox" required>
+
+                            I agree to the
+
+                            <a href="#" style="color:var(--primary); margin-left:4px;">
+                                Terms
+                            </a>
+
+                            &nbsp;&amp;&nbsp;
+
+                            <a href="#" style="color:var(--primary);">
+                                Privacy Policy
+                            </a>
+
+                        </label>
+
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Create Account
+                        </button>
+
+                    </form>
+
+                    <p style="text-align:center; margin-top:24px; font-size:0.92rem;">
+
+                        Already have an account?
+
+                        <a href="#" onclick="showLogin(); return false;"
+                            style="color:var(--primary); font-weight:700;">
+                            Login
+                        </a>
+
+                    </p>
+
+                </section>
+
+            </div>
+
+
+            <!-- Illustration Column -->
+            <aside class="auth-illustration">
+
+                <p style="font-family:var(--font-serif); font-style:italic; font-size:1.5rem; text-align:right; margin-bottom:8px;">
+                    Learn<br>
+                    Apply<br>
+                    Grow
+                </p>
+
+                <img src="images/hero-illustration.png"
+                    alt="Illustration of student opportunities"
+                    onerror="this.style.display='none'">
+
+                <blockquote class="card"
+                    style="padding:24px; font-family:var(--font-serif); font-style:italic; margin-top:20px; text-align:center;">
+
+                    &ldquo;Education is the passport to a brighter tomorrow.&rdquo;
+
+                    <footer class="muted"
+                        style="font-style:normal; font-size:0.85rem; margin-top:8px;">
+                        &mdash; Unknown
+                    </footer>
+
+                </blockquote>
+
+            </aside>
+
         </div>
-        <div class="flex-between" style="margin-bottom:24px;">
-          <label class="checkbox-row"><input type="checkbox"> Remember me</label>
-          <a href="#" style="color:var(--primary); font-weight:600; font-size:0.9rem;">Forgot password?</a>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+
+                <span class="brand-mark" aria-hidden="true">S</span>
+
+                <span>
+                    <strong style="display:block; font-family:var(--font-serif); font-size:1.05rem;">
+                        SmartResources Hub
+                    </strong>
+
+                    <span style="font-size:0.75rem; letter-spacing:0.04em; opacity:0.85;">
+                        Learn &middot; Apply &middot; Grow
+                    </span>
+                </span>
+
+            </div>
+
+            <p class="footer-quote">
+                &ldquo;Same students. Bigger opportunities.&rdquo;
+            </p>
+
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="contact.html">Support</a>
+            </div>
+
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Login</button>
-      </form>
 
-      <p style="text-align:center; margin-top:24px; font-size:0.92rem;">Don't have an account? <a href="#" onclick="showSignup()" style="color:var(--primary); font-weight:700;">Sign up</a></p>
-    </section>
+    </footer>
 
-    <!-- ===== Signup Panel (hidden by default) ===== -->
-    <section class="card" id="signupPanel" style="padding:40px; display:none;">
-      <p style="letter-spacing:0.1em; font-weight:600; color:var(--primary); font-size:0.78rem;">JOIN THE COMMUNITY</p>
-      <h2 style="font-size:2.2rem; margin-bottom:12px;">Create Your Account</h2>
-      <p class="muted" style="margin-bottom:28px;">Sign up to unlock personalized scholarships, discounts and AI tools curated for you.</p>
 
-      <form action="profile-setup.html" method="GET">
-        <div class="field">
-          <label for="signupName">Full name <span class="req">*</span></label>
-          <input type="text" id="signupName" required placeholder="Your full name">
-        </div>
-        <div class="field">
-          <label for="signupEmail">Email address <span class="req">*</span></label>
-          <input type="email" id="signupEmail" required placeholder="you@example.com">
-        </div>
-        <div class="field">
-          <label for="signupPassword">Password <span class="req">*</span></label>
-          <div class="input-icon-wrap">
-            <input type="password" id="signupPassword" required placeholder="Create a password" minlength="8">
-            <button type="button" class="trailing-btn" data-toggle-password="#signupPassword" aria-label="Show password">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-            </button>
-          </div>
-        </div>
-        <label class="checkbox-row" style="margin-bottom:24px;"><input type="checkbox" required> I agree to the <a href="#" style="color:var(--primary); margin-left:4px;">Terms</a>&nbsp;&amp;&nbsp;<a href="#" style="color:var(--primary);">Privacy Policy</a></label>
-        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
-      </form>
+    <!-- Existing JavaScript -->
+    <script src="script.js"></script>
 
-      <p style="text-align:center; margin-top:24px; font-size:0.92rem;">Already have an account? <a href="#" onclick="showLogin()" style="color:var(--primary); font-weight:700;">Login</a></p>
-    </section>
+    <script>
 
-    <!-- ===== Illustration ===== -->
-    <aside style="text-align:center; min-width:0;">
-      <p style="font-family:var(--font-serif); font-style:italic; font-size:1.5rem; text-align:right; margin-bottom:8px;">Learn<br>Apply<br>Grow</p>
-      <img src="images/hero-illustration.png" alt="Illustration of student opportunities" style="max-width:380px; width:100%; margin:0 auto;" onerror="this.style.display='none'">
-      <blockquote class="card" style="padding:24px; font-family:var(--font-serif); font-style:italic; margin-top:20px; text-align:center;">
-        &ldquo;Education is the passport to a brighter tomorrow.&rdquo;
-        <footer class="muted" style="font-style:normal; font-size:0.85rem; margin-top:8px;">&mdash; Unknown</footer>
-      </blockquote>
-    </aside>
-  </div>
-</main>
+        // Switch to Login
+        function showLogin() {
+            document.getElementById('loginPanel').style.display = '';
+            document.getElementById('signupPanel').style.display = 'none';
+        }
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <span class="brand-mark" aria-hidden="true">S</span>
-      <span>
-        <strong style="display:block; font-family:var(--font-serif); font-size:1.05rem;">SmartResources Hub</strong>
-        <span style="font-size:0.75rem; letter-spacing:0.04em; opacity:0.85;">Learn &middot; Apply &middot; Grow</span>
-      </span>
-    </div>
-    <p class="footer-quote">&ldquo;Same students. Bigger opportunities.&rdquo;</p>
-    <div class="footer-links">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="contact.html">Support</a>
-    </div>
-  </div>
-</footer>
+        // Switch to Signup
+        function showSignup() {
+            document.getElementById('loginPanel').style.display = 'none';
+            document.getElementById('signupPanel').style.display = '';
+        }
 
-<script src="script.js"></script>
-<script>
-  function showLogin() {
-    document.getElementById('loginPanel').style.display = '';
-    document.getElementById('signupPanel').style.display = 'none';
-  }
-  function showSignup() {
-    document.getElementById('loginPanel').style.display = 'none';
-    document.getElementById('signupPanel').style.display = '';
-  }
-</script>
+        // Password visibility toggle
+        document.querySelectorAll('[data-toggle-password]').forEach(button => {
+
+            button.addEventListener('click', function () {
+
+                const input = document.querySelector(
+                    this.getAttribute('data-toggle-password')
+                );
+
+                if (!input) return;
+
+                const isPassword = input.type === 'password';
+
+                input.type = isPassword ? 'text' : 'password';
+
+                this.setAttribute(
+                    'aria-label',
+                    isPassword ? 'Hide password' : 'Show password'
+                );
+
+            });
+
+        });
+
+    </script>
+
 </body>
 </html>

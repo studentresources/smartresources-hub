@@ -45,7 +45,7 @@
   --radius-lg: 20px;
   --shadow-card: 0 1px 2px rgba(42, 31, 29, 0.04), 0 6px 16px rgba(42, 31, 29, 0.05);
   --shadow-hover: 0 10px 24px rgba(110, 34, 34, 0.12);
-  --max-width: 1280px;
+  --max-width: 1600px;
 }
 
 /* ---------- Global Reset & Overflow Protection ---------- */
@@ -383,10 +383,10 @@ p {
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr);
   width: 100%;
-  max-width: var(--max-width);
+  max-width: 1600px;
   margin: 0 auto;
-  gap: 32px;
-  padding: 32px;
+  gap: 28px;
+  padding: 24px 28px;
   align-items: start;
 }
 

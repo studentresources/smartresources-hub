@@ -3,251 +3,437 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PM Vidyalaxmi Scheme — SmartResources Hub</title>
+<title>Resource Details — SmartResources Hub</title>
 <link rel="stylesheet" href="style.css">
+
+<style>
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 28px;
+  align-items: start;
+}
+.detail-card {
+  padding: 26px;
+  margin-bottom: 20px;
+}
+.detail-label {
+  font-size: 0.82rem;
+  color: var(--text-muted, #777);
+  margin-bottom: 5px;
+}
+.detail-value {
+  margin-bottom: 18px;
+}
+.detail-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.detail-actions > * {
+  width: 100%;
+}
+#resourceDescription {
+  line-height: 1.8;
+}
+@media(max-width:850px) {
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
+
 <body>
+
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="navbar">
   <div class="navbar-inner">
     <a class="brand" href="index.html">
-      <span class="brand-mark" aria-hidden="true">S</span>
-      <span class="brand-text"><h1>SmartResources Hub</h1><div class="brand-tagline">LEARN &middot; APPLY &middot; GROW</div></span>
+      <span class="brand-mark">S</span>
+      <span class="brand-text">
+        <h1>SmartResources Hub</h1>
+        <div class="brand-tagline">LEARN · APPLY · GROW</div>
+      </span>
     </a>
+
     <nav class="nav-links" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="recommendations.html">Resources</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
+
     <div class="nav-actions">
-      <div class="nav-search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.5-3.5"/></svg><input type="text" placeholder="Search schemes, tools, discounts..."></div>
-      <a href="my-profile.html" class="avatar" aria-label="My profile">S</a>
+      <a href="my-profile.html" class="avatar">S</a>
     </div>
   </div>
 </header>
 
 <div class="app-shell">
+
   <aside class="sidebar">
     <div class="sidebar-user">
       <span class="avatar">S</span>
-      <div><strong>Hello, Sayali!</strong><span>Undergraduate (UG)<br>Maharashtra</span></div>
+      <div>
+        <strong>Hello, Student!</strong>
+        <span>SmartResources Hub</span>
+      </div>
     </div>
+
     <nav class="sidebar-nav" aria-label="Account">
-      <a href="dashboard.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg>Dashboard</a>
-      <a href="recommendations.html" class="active"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="3.5"/></svg>Recommendations</a>
-      <a href="saved-items.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg>Saved Items</a>
-      <a href="my-profile.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>My Profile</a>
-      <a href="profile-setup.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>Profile Setup</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="recommendations.html" class="active">Recommendations</a>
+      <a href="saved-items.html">Saved Items</a>
+      <a href="my-profile.html">My Profile</a>
+      <a href="profile-setup.html">Profile Setup</a>
       <hr>
-      <a href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>Logout</a>
+      <a href="index.html">Logout</a>
     </nav>
-    <blockquote class="sidebar-quote">&ldquo;Knowledge today, opportunities tomorrow.&rdquo;</blockquote>
+
+    <blockquote class="sidebar-quote">
+      “Knowledge today, opportunities tomorrow.”
+    </blockquote>
   </aside>
 
   <main id="main" class="main-col">
-    <div style="display:grid; grid-template-columns: 1fr 320px; gap:32px; align-items:start;">
-      <div>
-        <p class="breadcrumb">
-          <a href="index.html">Home</a><span>&gt;</span>
-          <a href="recommendations.html">Resources</a><span>&gt;</span>
-          <a href="recommendations.html?category=government-scheme">Government Schemes</a><span>&gt;</span>
-          PM Vidyalaxmi Scheme
-        </p>
 
-        <div class="flex-between" style="align-items:flex-start; margin-bottom:10px;">
-          <div style="display:flex; gap:10px;">
-            <span class="badge badge-gov">Government Scheme</span>
-            <span class="badge badge-scope">Central</span>
-          </div>
-          <span class="muted" style="font-size:0.85rem; display:flex; align-items:center; gap:6px;">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
-            Last updated: 12 Aug 2025
-          </span>
-        </div>
+    <p class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>&gt;</span>
+      <a href="recommendations.html">Resources</a>
+      <span>&gt;</span>
+      Resource Details
+    </p>
 
-        <h1 style="font-size:2.3rem; margin-bottom:6px;">PM Vidyalaxmi Scheme</h1>
-        <p class="muted" style="font-size:1.05rem; margin-bottom:20px;">Collateral-free education loan up to &#8377;10 Lakhs for higher education.</p>
-
-        <div class="card" style="padding:0; overflow:hidden; margin-bottom:22px; display:grid; grid-template-columns: 1.3fr 1fr; gap:0;">
-          <div style="padding:28px; background:var(--primary-subtle); display:flex; align-items:center; justify-content:center; text-align:center;">
-            <div>
-              <p style="font-family:var(--font-serif); font-style:italic; font-size:1.3rem; margin-bottom:8px;">Education Today<br>A Brighter Tomorrow &hearts;</p>
-              <span class="resource-icon" style="background:var(--bg-card); color:var(--primary); width:64px; height:64px; font-size:1.8rem; margin:0 auto;">&#127963;</span>
-            </div>
-          </div>
-          <div style="padding:24px; display:flex; flex-direction:column; gap:16px;">
-            <div style="display:flex; gap:10px;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" style="flex-shrink:0; margin-top:2px;"><path d="M22 10 12 4 2 10l10 6 10-6Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>
-              <div><strong style="display:block; font-size:0.9rem;">Target Audience</strong><span class="muted" style="font-size:0.88rem;">Students pursuing higher education (UG/PG/Professional)</span></div>
-            </div>
-            <div style="display:flex; gap:10px;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5h4.5a1.5 1.5 0 0 1 0 3H10a1.5 1.5 0 0 0 0 3h5"/></svg>
-              <div><strong style="display:block; font-size:0.9rem;">Benefit</strong><span class="muted" style="font-size:0.88rem;">Education loan up to &#8377;10 Lakhs (without collateral)</span></div>
-            </div>
-            <div style="display:flex; gap:10px;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" style="flex-shrink:0; margin-top:2px;"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
-              <div><strong style="display:block; font-size:0.9rem;">Applicable Across</strong><span class="muted" style="font-size:0.88rem;">India (Select banks and institutions)</span></div>
-            </div>
-            <div style="display:flex; gap:10px;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" style="flex-shrink:0; margin-top:2px;"><path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg>
-              <div><strong style="display:block; font-size:0.9rem;">Implementing Body</strong><span class="muted" style="font-size:0.88rem;">Ministry of Education, Government of India</span></div>
-            </div>
-            <div style="display:flex; gap:10px;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg>
-              <div><strong style="display:block; font-size:0.9rem;">Official Website</strong><a href="https://www.vidyalaxmi.co.in" target="_blank" rel="noopener" style="color:var(--primary); font-size:0.88rem; font-weight:600;">vidyalaxmi.co.in &#8599;</a></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="tabs" data-tabs="detail">
-          <button class="active" data-tab="overview">Overview</button>
-          <button data-tab="eligibility">Eligibility</button>
-          <button data-tab="benefits">Benefits</button>
-          <button data-tab="apply">How to Apply</button>
-          <button data-tab="dates">Important Dates</button>
-          <button data-tab="faqs">FAQs</button>
-        </div>
-
-        <div data-tab-panel-group="detail">
-          <div data-tab-panel="overview">
-            <div class="card" style="padding:24px;">
-              <h3 style="font-size:1.15rem;">About the Scheme</h3>
-              <p class="muted">The PM Vidyalaxmi Scheme aims to provide collateral-free, risk-free education loans up to &#8377;10 Lakhs to meritorious students for higher education. The scheme seeks to remove financial barriers and empower students to pursue their academic dreams at reputed institutions in India and abroad.</p>
-
-              <div style="background:var(--bg-input); border-radius:var(--radius-md); padding:20px; margin-top:16px;">
-                <h4 style="font-size:1rem; display:flex; align-items:center; gap:8px; margin-bottom:14px;">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2Z"/></svg>
-                  Key Highlights
-                </h4>
-                <div class="grid-2" style="gap:10px 24px;">
-                  <p style="display:flex; gap:8px; margin:0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>Collateral-free loans up to &#8377;10 Lakhs</p>
-                  <p style="display:flex; gap:8px; margin:0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>Available through partner banks</p>
-                  <p style="display:flex; gap:8px; margin:0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>Interest subvention for eligible students</p>
-                  <p style="display:flex; gap:8px; margin:0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>Supports study in India and abroad</p>
-                  <p style="display:flex; gap:8px; margin:0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>Covers UG, PG and professional courses</p>
-                  <p style="display:flex; gap:8px; margin:0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>Part of the National Education Policy (NEP) initiative</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div data-tab-panel="eligibility" hidden>
-            <div class="card" style="padding:24px;">
-              <h3 style="font-size:1.15rem;">Eligibility Criteria</h3>
-              <ul style="display:flex; flex-direction:column; gap:10px;">
-                <li>Admission secured to a NIRF-ranked or accredited higher education institution.</li>
-                <li>Enrolled in an undergraduate, postgraduate, or professional degree programme.</li>
-                <li>Indian citizen with valid Aadhaar-linked identity documents.</li>
-                <li>No existing collateral-backed education loan for the same course.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div data-tab-panel="benefits" hidden>
-            <div class="card" style="padding:24px;">
-              <h3 style="font-size:1.15rem;">Benefits</h3>
-              <ul style="display:flex; flex-direction:column; gap:10px;">
-                <li>Loan amount up to &#8377;10 Lakhs with no collateral or guarantor required.</li>
-                <li>Interest subvention of 3% during the moratorium period for eligible income groups.</li>
-                <li>Flexible repayment beginning after course completion.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div data-tab-panel="apply" hidden>
-            <div class="card" style="padding:24px;">
-              <h3 style="font-size:1.15rem;">How to Apply</h3>
-              <ol style="display:flex; flex-direction:column; gap:10px; padding-left:20px;">
-                <li>Visit the official PM Vidyalaxmi portal and register with your email.</li>
-                <li>Fill in your academic and institution details.</li>
-                <li>Upload required documents (admission letter, fee structure, income proof).</li>
-                <li>Select a partner bank and submit your loan application.</li>
-                <li>Track application status directly on the portal.</li>
-              </ol>
-            </div>
-          </div>
-
-          <div data-tab-panel="dates" hidden>
-            <div class="card" style="padding:24px;">
-              <h3 style="font-size:1.15rem;">Important Dates</h3>
-              <p class="muted">Applications are accepted on a rolling basis throughout the academic year. Partner banks may have their own internal processing timelines &mdash; check the official portal for the latest updates.</p>
-            </div>
-          </div>
-
-          <div data-tab-panel="faqs" hidden>
-            <div class="card" style="padding:24px;">
-              <h3 style="font-size:1.15rem;">Frequently Asked Questions</h3>
-              <p style="margin-bottom:4px;"><strong>Is collateral required for loans above &#8377;7.5 Lakhs?</strong></p>
-              <p class="muted">No — loans up to &#8377;10 Lakhs under this scheme remain collateral-free for eligible institutions.</p>
-              <p style="margin-bottom:4px;"><strong>Can I apply if I'm studying abroad?</strong></p>
-              <p class="muted">Yes, provided the foreign institution meets the scheme's ranking criteria.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <aside style="display:flex; flex-direction:column; gap:18px;">
-        <a href="https://www.vidyalaxmi.co.in" target="_blank" rel="noopener" class="btn btn-primary btn-block">Apply on Official Portal
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
-        </a>
-        <button class="btn btn-outline btn-block" data-save-btn>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg><span>Save for Later</span>
-        </button>
-        <button class="btn btn-outline btn-block" type="button" onclick="navigator.share ? navigator.share({title:document.title,url:location.href}) : window.print()">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-3.8M8.6 13.5l6.8 3.8"/></svg>Share Resource
-        </button>
-
-        <blockquote class="card" style="padding:20px; font-family:var(--font-serif); font-style:italic; text-align:center;">
-          &ldquo;Invest in your education today, for a brighter tomorrow.&rdquo;
-        </blockquote>
-
-        <div class="card" style="padding:22px;">
-          <div class="section-title" style="margin-bottom:14px;">
-            <h3 style="font-size:1.05rem; margin:0;">Related Resources</h3>
-            <a href="recommendations.html" class="view-all" style="font-size:0.82rem;">View All
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-          </div>
-          <div style="display:flex; flex-direction:column; gap:16px;">
-            <a href="#" style="display:flex; gap:12px; align-items:center;">
-              <span class="resource-icon" style="background:#FFF3E0; color:#E65100; margin:0; width:44px; height:44px; font-size:1.1rem;">a</span>
-              <span>
-                <span class="badge badge-disc" style="margin-bottom:4px; display:inline-block;">Student Discount</span>
-                <strong style="display:block; font-size:0.92rem;">Amazon Student Discount</strong>
-                <span class="muted" style="font-size:0.8rem;">Exclusive discounts on electronics, books and more.</span>
-              </span>
-            </a>
-            <a href="#" style="display:flex; gap:12px; align-items:center;">
-              <span class="resource-icon" style="background:linear-gradient(135deg,#00C4CC,#7D2AE8); color:#fff; margin:0; width:44px; height:44px; font-size:1.1rem;">C</span>
-              <span>
-                <span class="badge badge-ai" style="margin-bottom:4px; display:inline-block;">AI &amp; Tech Tool</span>
-                <strong style="display:block; font-size:0.92rem;">Canva for Education</strong>
-                <span class="muted" style="font-size:0.8rem;">Free Canva Pro for verified students.</span>
-              </span>
-            </a>
-            <a href="#" style="display:flex; gap:12px; align-items:center;">
-              <span class="resource-icon" style="background:var(--primary-subtle); color:var(--primary); margin:0; width:44px; height:44px; font-size:1.1rem;">&#127891;</span>
-              <span>
-                <span class="badge" style="background:#FEF3C7; color:#92400E; margin-bottom:4px; display:inline-block;">Scholarship</span>
-                <strong style="display:block; font-size:0.92rem;">National Scholarship Portal</strong>
-                <span class="muted" style="font-size:0.8rem;">Multiple scholarships for meritorious students.</span>
-              </span>
-            </a>
-          </div>
-        </div>
-      </aside>
+    <div id="loadingMessage" class="card detail-card">
+      Loading resource details...
     </div>
+
+    <div id="errorMessage" class="card detail-card" hidden>
+      <h2>Resource Not Found</h2>
+      <p class="muted">
+        We couldn't find this resource. Please return to the resources page.
+      </p>
+      <a href="recommendations.html" class="btn btn-primary">
+        Browse Resources
+      </a>
+    </div>
+
+    <div id="resourceContent" hidden>
+
+      <div class="detail-layout">
+
+        <section>
+
+          <div class="flex-between" style="margin-bottom:14px;">
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <span class="badge" id="resourceCategory"></span>
+              <span class="badge badge-scope" id="resourceScope"></span>
+            </div>
+            <span class="muted" id="resourceStatus"></span>
+          </div>
+
+          <h1 id="resourceName" style="font-size:2.3rem;margin-bottom:10px;">
+          </h1>
+
+          <p class="muted" id="resourceDescription"
+             style="font-size:1.05rem;margin-bottom:22px;">
+          </p>
+
+          <div class="card detail-card">
+
+            <h3 style="margin-bottom:20px;">Resource Overview</h3>
+
+            <div class="detail-value">
+              <div class="detail-label">Benefit / Description</div>
+              <p id="resourceBenefit"></p>
+            </div>
+
+            <hr style="margin:15px 0;opacity:0.2;">
+
+            <div class="detail-value">
+              <div class="detail-label">Eligibility Criteria</div>
+              <p id="resourceEligibility"></p>
+            </div>
+
+            <hr style="margin:15px 0;opacity:0.2;">
+
+            <div class="detail-value">
+              <div class="detail-label">Provider / Organization</div>
+              <p id="resourceProvider"></p>
+            </div>
+
+            <hr style="margin:15px 0;opacity:0.2;">
+
+            <div class="detail-value">
+              <div class="detail-label">Applicable Region</div>
+              <p id="resourceScopeDetail"></p>
+            </div>
+
+          </div>
+
+          <div class="card detail-card">
+            <h3 style="margin-bottom:12px;">About This Resource</h3>
+            <p class="muted" id="resourceAbout">
+              Explore this opportunity and check its eligibility and official website before applying.
+            </p>
+          </div>
+
+        </section>
+
+        <aside style="display:flex;flex-direction:column;gap:18px;">
+
+          <div class="card detail-card">
+            <h3 style="margin-bottom:16px;">Take Action</h3>
+
+            <div class="detail-actions">
+
+              <a id="officialLink"
+                 href="#"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="btn btn-primary btn-block">
+                Visit Official Website ↗
+              </a>
+
+              <button class="btn btn-outline btn-block"
+                      id="saveResourceButton"
+                      data-save-btn
+                      type="button">
+                <span>Save for Later</span>
+              </button>
+
+              <button class="btn btn-outline btn-block"
+                      id="shareResourceButton"
+                      type="button">
+                Share Resource
+              </button>
+
+            </div>
+          </div>
+
+          <blockquote class="card detail-card"
+                      style="font-family:var(--font-serif);font-style:italic;text-align:center;">
+            “Discover opportunities. Build your future.”
+          </blockquote>
+
+          <div class="card detail-card">
+            <h3 style="margin-bottom:10px;">Need More Resources?</h3>
+            <p class="muted" style="margin-bottom:15px;">
+              Explore more schemes, scholarships, discounts and useful tools.
+            </p>
+            <a href="recommendations.html" class="btn btn-outline btn-block">
+              Explore Resources
+            </a>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
   </main>
 </div>
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <p class="footer-quote">&ldquo;Same students. Bigger opportunities.&rdquo;</p>
+    <p class="footer-quote">
+      “Same students. Bigger opportunities.”
+    </p>
   </div>
 </footer>
 
 <script src="script.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+
+  const loading = document.getElementById('loadingMessage');
+  const error = document.getElementById('errorMessage');
+  const content = document.getElementById('resourceContent');
+
+  const params = new URLSearchParams(window.location.search);
+  const resourceId = params.get('id');
+
+  const slugify = text =>
+    (text || '')
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '');
+
+  const setText = (id, value, fallback = 'Not specified') => {
+    document.getElementById(id).textContent = value || fallback;
+  };
+
+  if (!resourceId) {
+    loading.hidden = true;
+    error.hidden = false;
+    return;
+  }
+
+  try {
+
+    const response = await fetch('resources.xml');
+
+    if (!response.ok) {
+      throw new Error('Unable to load resources.xml');
+    }
+
+    const xmlText = await response.text();
+
+    const parser = new DOMParser();
+
+    const xml = parser.parseFromString(
+      xmlText,
+      'application/xml'
+    );
+
+    if (xml.querySelector('parsererror')) {
+      throw new Error('Invalid XML file');
+    }
+
+    const items = [...xml.getElementsByTagName('item')];
+    console.log('XML items found:', items.length);
+    console.log('Requested resource ID:', resourceId);
+    console.log('Available IDs:', items.map(item => item.getAttribute('id')));  
+
+    const item = items.find(entry => {
+
+      const xmlId = entry.getAttribute('id');
+
+      const name =
+        entry.querySelector('name')?.textContent.trim() || '';
+
+      return xmlId === resourceId ||
+             slugify(name) === resourceId;
+
+    });
+
+    if (!item) {
+      loading.hidden = true;
+      error.hidden = false;
+      return;
+    }
+
+    const get = tag =>
+      item.querySelector(tag)?.textContent.trim() || '';
+
+    const id = item.getAttribute('id') || slugify(get('name'));
+
+    const name = get('name');
+    const category = get('category');
+    const scope = get('scope');
+    const status = get('status');
+    const benefit = get('benefit');
+    const eligibility = get('eligibility');
+    const provider = get('provider');
+    const applyUrl = get('applyUrl');
+
+    document.title = name + ' — SmartResources Hub';
+
+    setText('resourceName', name);
+    setText('resourceCategory', category);
+    setText('resourceScope', scope);
+    setText('resourceStatus', status);
+    setText('resourceDescription', benefit);
+    setText('resourceBenefit', benefit);
+    setText('resourceEligibility', eligibility);
+    setText('resourceProvider', provider);
+    setText('resourceScopeDetail', scope);
+
+    setText(
+      'resourceAbout',
+      name + ' is listed on SmartResources Hub. ' +
+      (benefit ? benefit + ' ' : '') +
+      'Check the official website for complete details and updated information.'
+    );
+
+    const officialLink = document.getElementById('officialLink');
+
+    if (applyUrl) {
+      officialLink.href = applyUrl;
+    } else {
+      officialLink.hidden = true;
+    }
+
+    // Prepare the save button for the existing script.js.
+    const saveButton = document.getElementById('saveResourceButton');
+
+    const saveCard = document.createElement('div');
+
+    saveCard.className = 'resource-card';
+    saveCard.dataset.resourceId = id;
+    saveCard.dataset.category = category;
+    saveCard.dataset.scope = scope;
+    saveCard.dataset.provider = provider;
+    saveCard.dataset.eligibility = eligibility;
+    saveCard.dataset.applyUrl = applyUrl;
+
+    const hiddenHeading = document.createElement('h3');
+    hiddenHeading.textContent = name;
+    hiddenHeading.hidden = true;
+
+    const hiddenDescription = document.createElement('p');
+    hiddenDescription.className = 'desc';
+    hiddenDescription.textContent = benefit;
+    hiddenDescription.hidden = true;
+
+    saveCard.append(hiddenHeading, hiddenDescription);
+    saveButton.parentElement.insertBefore(saveCard, saveButton);
+    saveCard.appendChild(saveButton);
+
+    saveButton.querySelector('span').textContent = 'Save for Later';
+
+    // Update breadcrumb.
+    const breadcrumb = document.querySelector('.breadcrumb');
+
+    const currentName = document.createElement('span');
+    currentName.textContent = name;
+    breadcrumb.appendChild(currentName);
+
+    // Show the loaded resource.
+    loading.hidden = true;
+    content.hidden = false;
+
+    // Share button.
+    document.getElementById('shareResourceButton')
+      .addEventListener('click', async () => {
+
+        const shareData = {
+          title: name,
+          text: benefit,
+          url: window.location.href
+        };
+
+        try {
+          if (navigator.share) {
+            await navigator.share(shareData);
+          } else {
+            await navigator.clipboard.writeText(window.location.href);
+            alert('Resource link copied!');
+          }
+        } catch (err) {
+          if (err.name !== 'AbortError') {
+            alert('Unable to share this resource.');
+          }
+        }
+
+      });
+
+  } catch (err) {
+
+    console.error('Resource detail error:', err);
+
+    loading.textContent =
+      'Unable to load resource details. Please check resources.xml and try again.';
+
+  }
+
+});
+</script>
+
 </body>
 </html>

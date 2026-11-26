@@ -57,7 +57,7 @@
       <a href="my-profile.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>My Profile</a>
       <a href="profile-setup.html" class="active"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1-1.56 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.56-1 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.56 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87V9a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1Z"/></svg>Profile Setup</a>
       <hr>
-      <a href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>Logout</a>
+      <a href="index.html" data-logout><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>Logout</a>
     </nav>
     <blockquote class="sidebar-quote">&ldquo;Small steps today, big possibilities tomorrow.&rdquo;</blockquote>
   </aside>
@@ -151,11 +151,11 @@
             <p class="muted">A little more about you.</p>
             <div class="field">
               <label for="fullName">Full Name <span class="req">*</span></label>
-              <input type="text" id="fullName" required placeholder="Your full name" value="Sayali">
+              <input type="text" id="fullName" required placeholder="Your full name" >
             </div>
             <div class="field">
               <label for="dob">Date of Birth <span class="req">*</span></label>
-              <input type="text" id="dob" required placeholder="DD/MM/YYYY">
+              <input type="date" id="dob" required>
             </div>
             <div class="field">
               <label for="phone">Phone Number</label>
@@ -237,73 +237,6 @@
 </footer>
 
 <script src="script.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('[data-step-form]');
-    if (!form) return;
 
-    const panels = form.querySelectorAll('[data-step-panel]');
-    const steps = document.querySelectorAll('.steps .step');
-    const counter = document.querySelector('[data-step-counter]');
-    let currentStep = 0;
-
-    function showStep(stepIndex) {
-      panels.forEach((panel, i) => {
-        if (i === stepIndex) {
-          panel.removeAttribute('hidden');
-          panel.style.display = 'block';
-        } else {
-          panel.setAttribute('hidden', '');
-          panel.style.display = 'none';
-        }
-      });
-
-      steps.forEach((step, i) => {
-        step.classList.remove('current', 'done');
-        if (i < stepIndex) {
-          step.classList.add('done');
-        } else if (i === stepIndex) {
-          step.classList.add('current');
-        }
-      });
-
-      if (counter) {
-        counter.textContent = stepIndex + 1;
-      }
-      currentStep = stepIndex;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    form.querySelectorAll('[data-next]').forEach(btn => {
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        const currentPanel = panels[currentStep];
-        const inputs = currentPanel.querySelectorAll('input[required], select[required]');
-        let valid = true;
-        inputs.forEach(input => {
-          if (!input.checkValidity()) {
-            input.reportValidity();
-            valid = false;
-          }
-        });
-
-        if (valid && currentStep < panels.length - 1) {
-          showStep(currentStep + 1);
-        }
-      });
-    });
-
-    form.querySelectorAll('[data-prev]').forEach(btn => {
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (currentStep > 0) {
-          showStep(currentStep - 1);
-        }
-      });
-    });
-
-    showStep(0);
-  });
-</script>
 </body>
 </html>

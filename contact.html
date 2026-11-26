@@ -49,15 +49,15 @@
     <form class="card" style="padding:32px;" id="contactForm" novalidate>
       <div class="field">
         <label for="cName">Full Name <span class="req">*</span></label>
-        <input type="text" id="cName" required placeholder="Your full name">
+        <input type="text" id="cName" name="name" required placeholder="Your full name">
       </div>
       <div class="field">
         <label for="cEmail">Email Address <span class="req">*</span></label>
-        <input type="email" id="cEmail" required placeholder="you@example.com">
+        <input type="email" id="cEmail" name="email" type="email" required placeholder="you@example.com">
       </div>
       <div class="field">
         <label for="cSubject">Subject <span class="req">*</span></label>
-        <select id="cSubject" required>
+        <select id="cSubject" name="subject" required>
           <option value="">Select a topic</option>
           <option>General Inquiry</option>
           <option>Report an Issue</option>
@@ -67,7 +67,7 @@
       </div>
       <div class="field">
         <label for="cMessage">Message <span class="req">*</span></label>
-        <textarea id="cMessage" rows="5" required placeholder="Tell us how we can help..."></textarea>
+        <textarea id="cMessage" name="message" rows="5" required placeholder="Tell us how we can help..."></textarea>
       </div>
       <button type="submit" class="btn btn-primary btn-block">Send Message</button>
     </form>

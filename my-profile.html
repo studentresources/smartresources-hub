@@ -41,19 +41,19 @@
       <a href="my-profile.html" class="active"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>My Profile</a>
       <a href="profile-setup.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>Profile Setup</a>
       <hr>
-      <a href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>Logout</a>
+      <a href="index.html" data-logout><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>Logout</a>
     </nav>
     <blockquote class="sidebar-quote">&ldquo;Small steps today, big possibilities tomorrow.&rdquo;</blockquote>
   </aside>
 
-  <main id="main" class="main-col">
+  <main id="main" class="main-col" data-profile-container>
     <p class="breadcrumb"><a href="index.html">Home</a><span>&gt;</span>My Profile</p>
 
     <div class="card" style="padding:32px; margin-bottom:24px; display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
       <span class="avatar" style="width:84px; height:84px; font-size:2.2rem;">S</span>
       <div style="flex:1; min-width:200px;">
-        <h1 style="font-size:1.8rem; margin-bottom:4px;">Sayali Joshi</h1>
-        <p class="muted" style="margin:0;">sayali.joshi@example.edu.in</p>
+        <h1 data-profile-name style="font-size:1.8rem; margin-bottom:4px;">Student</h1>
+        <p class="muted" data-profile-email style="margin:0;"></p>
       </div>
       <a href="profile-setup.html" class="btn btn-outline">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>Edit Profile
@@ -64,10 +64,10 @@
       <div class="card" style="padding:26px;">
         <h3 style="font-size:1.1rem; margin-bottom:18px;">Academic Details</h3>
         <div style="display:flex; flex-direction:column; gap:14px; font-size:0.92rem;">
-          <div class="flex-between"><span class="muted">Education Level</span><strong>Undergraduate (UG)</strong></div>
-          <div class="flex-between"><span class="muted">Field of Study</span><strong>Computer Science &amp; Engineering</strong></div>
-          <div class="flex-between"><span class="muted">Year of Study</span><strong>2nd Year</strong></div>
-          <div class="flex-between"><span class="muted">State</span><strong>Maharashtra</strong></div>
+          <div class="flex-between"><span class="muted">Education Level</span><strong data-profile-education>Not added yet</strong></div>
+          <div class="flex-between"><span class="muted">Field of Study</span><strong data-profile-field>Not added yet</strong></div>
+          <div class="flex-between"><span class="muted">Year of Study</span><strong data-profile-year>Not added yet</strong></div>
+          <div class="flex-between"><span class="muted">State</span><strong data-profile-state>Not added yet</strong></div>
         </div>
       </div>
       <div class="card" style="padding:26px;">
@@ -88,12 +88,7 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>Edit
         </a>
       </div>
-      <div style="display:flex; flex-wrap:wrap; gap:8px;">
-        <span class="pill active">Computer Science</span>
-        <span class="pill active">Scholarships</span>
-        <span class="pill active">AI Tools</span>
-        <span class="pill active">Skill Development</span>
-      </div>
+      <div data-profile-interests style="display:flex; flex-wrap:wrap; gap:8px;"></div>
     </div>
   </main>
 </div>

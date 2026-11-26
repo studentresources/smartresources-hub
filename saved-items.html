@@ -41,7 +41,7 @@
       <a href="my-profile.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>My Profile</a>
       <a href="profile-setup.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>Profile Setup</a>
       <hr>
-      <a href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>Logout</a>
+      <a href="index.html" data-logout><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>Logout</a>
     </nav>
     <blockquote class="sidebar-quote">&ldquo;Opportunities saved today, change tomorrows.&rdquo;</blockquote>
   </aside>
@@ -76,85 +76,7 @@
           </div>
         </div>
 
-        <div class="grid-3" id="savedGrid">
-          <article class="resource-card saved-card" data-category="government-scheme" data-saved-card>
-            <div class="resource-card-top"><span class="badge badge-gov">Government Scheme</span><span class="muted" style="font-size:0.78rem;">Saved 26 Aug 2025</span></div>
-            <div class="resource-icon" style="background:var(--badge-gov-bg); color:var(--badge-gov-txt);">&#127963;</div>
-            <h3>PM Vidyalaxmi Scheme</h3>
-            <p class="desc">Collateral-free loan up to &#8377;10 Lakhs for higher education.</p>
-            <div style="display:flex; gap:10px; margin-top:6px;">
-              <a href="resource-detail.html" class="btn btn-outline" style="flex:1;">View Details</a>
-              <button class="btn btn-primary" data-remove-btn style="flex:1;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6"/></svg>Remove
-              </button>
-            </div>
-          </article>
-
-          <article class="resource-card saved-card" data-category="student-discount" data-saved-card>
-            <div class="resource-card-top"><span class="badge badge-disc">Student Discount</span><span class="muted" style="font-size:0.78rem;">Saved 24 Aug 2025</span></div>
-            <div class="resource-icon" style="background:#FFF3E0; color:#E65100;">a</div>
-            <h3>Amazon Student Discount</h3>
-            <p class="desc">Get exclusive discounts on electronics, books and more.</p>
-            <div style="display:flex; gap:10px; margin-top:6px;">
-              <a href="#" class="btn btn-outline" style="flex:1;">View Details</a>
-              <button class="btn btn-primary" data-remove-btn style="flex:1;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6"/></svg>Remove
-              </button>
-            </div>
-          </article>
-
-          <article class="resource-card saved-card" data-category="ai-tool" data-saved-card>
-            <div class="resource-card-top"><span class="badge badge-ai">AI &amp; Tech Tool</span><span class="muted" style="font-size:0.78rem;">Saved 22 Aug 2025</span></div>
-            <div class="resource-icon" style="background:linear-gradient(135deg,#00C4CC,#7D2AE8); color:#fff;">C</div>
-            <h3>Canva for Education</h3>
-            <p class="desc">Free Canva Pro for verified students.</p>
-            <div style="display:flex; gap:10px; margin-top:6px;">
-              <a href="#" class="btn btn-outline" style="flex:1;">View Details</a>
-              <button class="btn btn-primary" data-remove-btn style="flex:1;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6"/></svg>Remove
-              </button>
-            </div>
-          </article>
-
-          <article class="resource-card saved-card" data-category="scholarship" data-saved-card>
-            <div class="resource-card-top"><span class="badge" style="background:#FEF3C7; color:#92400E;">Scholarship</span><span class="muted" style="font-size:0.78rem;">Saved 20 Aug 2025</span></div>
-            <div class="resource-icon" style="background:var(--primary-subtle); color:var(--primary);">&#127891;</div>
-            <h3>National Scholarship Portal</h3>
-            <p class="desc">Multiple scholarships for meritorious and disadvantaged students.</p>
-            <div style="display:flex; gap:10px; margin-top:6px;">
-              <a href="#" class="btn btn-outline" style="flex:1;">View Details</a>
-              <button class="btn btn-primary" data-remove-btn style="flex:1;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6"/></svg>Remove
-              </button>
-            </div>
-          </article>
-
-          <article class="resource-card saved-card" data-category="ai-tool" data-saved-card>
-            <div class="resource-card-top"><span class="badge badge-ai">AI &amp; Tech Tool</span><span class="muted" style="font-size:0.78rem;">Saved 18 Aug 2025</span></div>
-            <div class="resource-icon" style="background:#000; color:#fff;">N</div>
-            <h3>Notion for Students</h3>
-            <p class="desc">Organize your notes, tasks and projects &mdash; free for students.</p>
-            <div style="display:flex; gap:10px; margin-top:6px;">
-              <a href="#" class="btn btn-outline" style="flex:1;">View Details</a>
-              <button class="btn btn-primary" data-remove-btn style="flex:1;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6"/></svg>Remove
-              </button>
-            </div>
-          </article>
-
-          <article class="resource-card saved-card" data-category="student-discount" data-saved-card>
-            <div class="resource-card-top"><span class="badge badge-disc">Student Discount</span><span class="muted" style="font-size:0.78rem;">Saved 15 Aug 2025</span></div>
-            <div class="resource-icon" style="background:#1DB954; color:#fff;">&#9834;</div>
-            <h3>Spotify Student Plan</h3>
-            <p class="desc">50% off on premium plan for eligible students.</p>
-            <div style="display:flex; gap:10px; margin-top:6px;">
-              <a href="#" class="btn btn-outline" style="flex:1;">View Details</a>
-              <button class="btn btn-primary" data-remove-btn style="flex:1;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6"/></svg>Remove
-              </button>
-            </div>
-          </article>
-        </div>
+        <div class="grid-3" id="savedGrid"></div>
 
         <!-- Empty state (shown when JS confirms 0 saved cards remain) -->
         <div class="empty-state" id="savedEmptyState" hidden>
@@ -192,17 +114,6 @@
 </footer>
 
 <script src="script.js"></script>
-<script>
-  // Show the empty state once every saved card has been removed
-  const savedGrid = document.getElementById('savedGrid');
-  const emptyState = document.getElementById('savedEmptyState');
-  const observer = new MutationObserver(() => {
-    if (savedGrid.children.length === 0) {
-      savedGrid.hidden = true;
-      emptyState.hidden = false;
-    }
-  });
-  observer.observe(savedGrid, { childList: true });
-</script>
+
 </body>
 </html>
