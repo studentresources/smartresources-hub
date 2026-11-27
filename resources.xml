@@ -30,16 +30,6 @@
     <applyUrl>https://scholarships.gov.in</applyUrl>
   </item>
 
-  <item id="gov003">
-    <name>AICTE Pragati Scholarship for Girls</name>
-    <category>Government Scheme</category>
-    <scope>Central</scope>
-    <status>Active</status>
-    <benefit>Rs. 50,000 per annum for female students enrolled in technical degree or diploma programs</benefit>
-    <eligibility>Girls in AICTE-approved technical programmes, family income under Rs. 8 Lakhs</eligibility>
-    <provider>AICTE</provider>
-    <applyUrl>https://www.aicte-india.org/schemes/students-development-schemes</applyUrl>
-  </item>
 
   <item id="gov004">
     <name>Rajarshi Shahu Maharaj Scholarship (EBC)</name>
