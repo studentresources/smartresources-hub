@@ -8,16 +8,6 @@
 <resources>
 
   <!-- ===================== GOVERNMENT SCHEMES ===================== -->
-  <item id="gov001" featured="true">
-    <name>PM Vidyalaxmi Scheme</name>
-    <category>Government Scheme</category>
-    <scope>Central</scope>
-    <status>Active</status>
-    <benefit>Collateral-free education loan up to Rs. 10 Lakhs with interest subvention for higher education</benefit>
-    <eligibility>Admission to top-ranked higher education institutions (UG/PG/Professional)</eligibility>
-    <provider>Ministry of Education, Government of India</provider>
-    <applyUrl>https://www.vidyalaxmi.co.in</applyUrl>
-  </item>
 
   <item id="gov002">
     <name>Post-Matric Scholarship (SC/ST/OBC)</name>
